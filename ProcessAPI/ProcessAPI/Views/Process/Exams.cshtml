@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProcessAPI.Models.Exam>
+@{
+    ViewData["Title"] = "Exams";
+}
+<h2>Exams</h2>
+
+<p>Below is a list of the exams</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExamID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ExamName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<script>setTimeout("window.location.reload();",20000);</script>*@
+

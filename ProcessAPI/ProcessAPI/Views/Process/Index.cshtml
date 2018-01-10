@@ -1,0 +1,112 @@
+﻿@model  IEnumerable<ProcessAPI.Models.Process>
+    @{
+        ViewData["Title"] = "Process List";
+    }
+    <h2 style="padding:0.5em; margin-top:0.5em;">Processes</h2>
+
+    <p style="padding:0.5em;">Below is a list of the running processes</p>
+
+
+@*<form asp-controller="Process" asp-action="Index">
+    <p>
+        LastName: <input type="text" name="LastName">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<form asp-controller="Process" asp-action="Index">
+    <p>
+        ProcessName: <input type="text" name="ProcessName">
+        <input type="submit" value="Filter" />
+    </p>
+</form>*@
+
+@*<p>
+
+    @using (Html.BeginForm("Index","Process",FormMethod.Get))
+    {
+        <text>First Name</text>@Html.DropDownList("FirstName", new SelectList(ViewBag.FirstName))
+        <text>Last Name</text>@Html.DropDownList("LastName", new SelectList(ViewBag.LastName))
+        <text>Window Name</text>@Html.DropDownList("WindowName", new SelectList(ViewBag.WindowName))
+        <text>Process Name</text>@Html.DropDownList("ProcessName", new SelectList(ViewBag.ProcessName))
+        <input type ="submit" value="Search"/>  
+}
+
+</p>*@
+<p style="padding:0.5em;">@Html.ActionLink("Undo Sorting", "Index")</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.FirstName)*@
+                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.LastName)*@
+                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.StudentNumber)*@
+                @Html.ActionLink("Student Number", "Index", new { sortOrder = ViewBag.StudentNumberSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.WindowName)*@
+                @Html.ActionLink("Window Name", "Index", new { sortOrder = ViewBag.WindowNameSortParm })
+            </th>
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.ProcessName)*@
+                @Html.ActionLink("Process Name", "Index", new { sortOrder = ViewBag.ProcessNameSortParm })
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WindowName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcessName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcessID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+
+            </tr>
+}
+    </tbody>
+</table>
+<script>setTimeout("window.location.reload();",20000);</script>

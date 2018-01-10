@@ -1,0 +1,62 @@
+﻿@model  IEnumerable<ProcessAPI.Models.Finished>
+@{
+    ViewData["Title"] = "Finished";
+}
+<h2>Completed Exam</h2>
+
+<p>Below is a list of the students who have completed their exam</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishedID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+                @*@Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm })*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+                @*@Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm })*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentNumber)
+                @*@Html.ActionLink("Student Number", "Index", new { sortOrder = ViewBag.StudentNumberSortParm })*@
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CompletionTime)
+                @*@Html.ActionLink("Student Number", "Index", new { sortOrder = ViewBag.StudentNumberSortParm })*@
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishedID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentNumber)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompletionTime)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<script>setTimeout("window.location.reload();",20000);</script>
